@@ -1,4 +1,4 @@
-# Code 1: dataset prep and sanitization
+# Code: dataset prep and sanitization
 # juliet testcases we selected -> 145 good + 145 bad = 290 clean files + labels.csv
 import argparse
 import csv
