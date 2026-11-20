@@ -1,0 +1,51 @@
+#include "std_testcase.h"
+
+#ifndef _WIN32
+#include <wchar.h>
+#endif
+
+#define SRC_STRING "AAAAAAAAAA"
+
+static void func1()
+{
+    char * data;
+    data = NULL;
+    if(GLOBAL_CONST_FALSE)
+    {
+        printLine("Benign, fixed string");
+    }
+    else
+    {
+        data = (char *)malloc((10+1)*sizeof(char));
+        if (data == NULL) {exit(-1);}
+    }
+    {
+        char source[10+1] = SRC_STRING;
+        strncpy(data, source, strlen(source) + 1);
+        printLine(data);
+        free(data);
+    }
+}
+
+static void func2()
+{
+    char * data;
+    data = NULL;
+    if(GLOBAL_CONST_TRUE)
+    {
+        data = (char *)malloc((10+1)*sizeof(char));
+        if (data == NULL) {exit(-1);}
+    }
+    {
+        char source[10+1] = SRC_STRING;
+        strncpy(data, source, strlen(source) + 1);
+        printLine(data);
+        free(data);
+    }
+}
+
+void func3()
+{
+    func1();
+    func2();
+}

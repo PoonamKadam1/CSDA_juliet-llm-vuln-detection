@@ -1,0 +1,103 @@
+#include "std_testcase.h"
+
+static void func1()
+{
+    unsigned int data;
+    data = 0;
+    if(GLOBAL_CONST_TRUE)
+    {
+        fscanf (stdin, "%u", &data);
+    }
+    if(GLOBAL_CONST_FALSE)
+    {
+        printLine("Benign, fixed string");
+    }
+    else
+    {
+        if(data > 0)
+        {
+            if (data < (UINT_MAX/2))
+            {
+                unsigned int result = data * 2;
+                printUnsignedLine(result);
+            }
+            else
+            {
+                printLine("data value is too large to perform arithmetic safely.");
+            }
+        }
+    }
+}
+
+static void func2()
+{
+    unsigned int data;
+    data = 0;
+    if(GLOBAL_CONST_TRUE)
+    {
+        fscanf (stdin, "%u", &data);
+    }
+    if(GLOBAL_CONST_TRUE)
+    {
+        if(data > 0)
+        {
+            if (data < (UINT_MAX/2))
+            {
+                unsigned int result = data * 2;
+                printUnsignedLine(result);
+            }
+            else
+            {
+                printLine("data value is too large to perform arithmetic safely.");
+            }
+        }
+    }
+}
+
+static void func3()
+{
+    unsigned int data;
+    data = 0;
+    if(GLOBAL_CONST_FALSE)
+    {
+        printLine("Benign, fixed string");
+    }
+    else
+    {
+        data = 2;
+    }
+    if(GLOBAL_CONST_TRUE)
+    {
+        if(data > 0)
+        {
+            unsigned int result = data * 2;
+            printUnsignedLine(result);
+        }
+    }
+}
+
+static void func4()
+{
+    unsigned int data;
+    data = 0;
+    if(GLOBAL_CONST_TRUE)
+    {
+        data = 2;
+    }
+    if(GLOBAL_CONST_TRUE)
+    {
+        if(data > 0)
+        {
+            unsigned int result = data * 2;
+            printUnsignedLine(result);
+        }
+    }
+}
+
+void func5()
+{
+    func1();
+    func2();
+    func3();
+    func4();
+}

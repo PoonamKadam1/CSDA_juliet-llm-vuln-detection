@@ -1,0 +1,4 @@
+Model,Accuracy %,Recall %,Specificity %,Precision %,False alarm %,F1 %,MCC,Avg s/file
+codellama:7b,52.8,100.0,5.5,51.4,94.5,67.9,0.168,10.0
+deepseek-coder:6.7b,70.0,52.4,87.6,80.9,12.4,63.6,0.427,6.8
+qwen2.5-coder:7b,57.9,89.7,26.2,54.9,73.8,68.1,0.205,6.7

@@ -1,0 +1,8 @@
+CWE,Name,Files,Bad,Good,C,C++,Variant 01,Variant 09,% of dataset
+CWE78,OS Command Injection,50,25,25,50,0,22,28,17.2
+CWE121,Stack Buffer Overflow,50,25,25,50,0,24,26,17.2
+CWE122,Heap Buffer Overflow,50,25,25,26,24,30,20,17.2
+CWE190,Integer Overflow,50,25,25,50,0,22,28,17.2
+CWE416,Use After Free,50,25,25,12,38,32,18,17.2
+CWE476,NULL Pointer Dereference,40,20,20,36,4,20,20,13.8
+Total,,290,145,145,224,66,150,140,100.0

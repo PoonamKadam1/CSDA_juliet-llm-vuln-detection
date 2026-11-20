@@ -1,0 +1,19 @@
+Model,True CWE,Bugs found,Most common CWE given (count)
+codellama:7b,CWE78,25,CWE-787 (25)
+codellama:7b,CWE121,25,"CWE-120 (20), CWE-787 (4), CWE-416 (1)"
+codellama:7b,CWE122,25,"CWE-120 (10), CWE-122 (10), CWE-787 (3)"
+codellama:7b,CWE190,25,"CWE-787 (22), CWE-190 (3)"
+codellama:7b,CWE416,25,"CWE-416 (16), CWE-415 (4), CWE-476 (3)"
+codellama:7b,CWE476,20,"CWE-476 (9), CWE-787 (9), CWE-416 (2)"
+deepseek-coder:6.7b,CWE78,10,"CWE-120 (6), CWE-787 (4)"
+deepseek-coder:6.7b,CWE121,11,"CWE-787 (4), CWE-120 (4), CWE-125 (2)"
+deepseek-coder:6.7b,CWE122,12,"CWE-787 (3), CWE-125 (3), CWE-476 (2)"
+deepseek-coder:6.7b,CWE190,5,"CWE-125 (2), CWE-674 (1), CWE-190 (1)"
+deepseek-coder:6.7b,CWE416,21,"CWE-476 (18), CWE-415 (3)"
+deepseek-coder:6.7b,CWE476,17,"CWE-476 (6), CWE-588 (4), CWE-590 (3)"
+qwen2.5-coder:7b,CWE78,25,"CWE-78 (24), CWE-787 (1)"
+qwen2.5-coder:7b,CWE121,23,"CWE-120 (14), CWE-190 (9)"
+qwen2.5-coder:7b,CWE122,23,"CWE-120 (17), CWE-190 (5), CWE-125 (1)"
+qwen2.5-coder:7b,CWE190,18,"CWE-78 (8), CWE-190 (5), CWE-787 (5)"
+qwen2.5-coder:7b,CWE416,25,"CWE-416 (19), CWE-415 (5), CWE-401 (1)"
+qwen2.5-coder:7b,CWE476,16,CWE-476 (16)

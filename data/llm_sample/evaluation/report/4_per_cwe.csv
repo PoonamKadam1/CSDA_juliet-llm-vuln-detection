@@ -1,0 +1,19 @@
+Model,CWE,Name,Files,TP,FN,FP,TN,Accuracy %,Recall %,Specificity %,Precision %,False alarm %,F1 %,MCC,Bugs found,CWE exact %,CWE related %,Line exact %,Line ±2 %
+codellama:7b,CWE78,OS Command Injection,50,25,0,25,0,50.0,100.0,0.0,50.0,100.0,66.7,0.0,25,0.0,0.0,48.0,56.0
+codellama:7b,CWE121,Stack Buffer Overflow,50,25,0,24,1,52.0,100.0,4.0,51.0,96.0,67.6,0.143,25,0.0,96.0,72.0,88.0
+codellama:7b,CWE122,Heap Buffer Overflow,50,25,0,23,2,54.0,100.0,8.0,52.1,92.0,68.5,0.204,25,40.0,96.0,72.0,100.0
+codellama:7b,CWE190,Integer Overflow,50,25,0,22,3,56.0,100.0,12.0,53.2,88.0,69.4,0.253,25,12.0,12.0,84.0,88.0
+codellama:7b,CWE416,Use After Free,50,25,0,23,2,54.0,100.0,8.0,52.1,92.0,68.5,0.204,25,64.0,64.0,80.0,100.0
+codellama:7b,CWE476,NULL Pointer Dereference,40,20,0,20,0,50.0,100.0,0.0,50.0,100.0,66.7,0.0,20,45.0,45.0,80.0,90.0
+deepseek-coder:6.7b,CWE78,OS Command Injection,50,10,15,8,17,54.0,40.0,68.0,55.6,32.0,46.5,0.083,10,0.0,0.0,80.0,90.0
+deepseek-coder:6.7b,CWE121,Stack Buffer Overflow,50,11,14,5,20,62.0,44.0,80.0,68.8,20.0,53.7,0.257,11,0.0,100.0,72.7,100.0
+deepseek-coder:6.7b,CWE122,Heap Buffer Overflow,50,12,13,5,20,64.0,48.0,80.0,70.6,20.0,57.1,0.296,12,0.0,66.7,83.3,100.0
+deepseek-coder:6.7b,CWE190,Integer Overflow,50,5,20,0,25,60.0,20.0,100.0,100.0,0.0,33.3,0.333,5,20.0,20.0,100.0,100.0
+deepseek-coder:6.7b,CWE416,Use After Free,50,21,4,0,25,92.0,84.0,100.0,100.0,0.0,91.3,0.851,21,0.0,0.0,57.1,57.1
+deepseek-coder:6.7b,CWE476,NULL Pointer Dereference,40,17,3,0,20,92.5,85.0,100.0,100.0,0.0,91.9,0.86,17,35.3,35.3,52.9,88.2
+qwen2.5-coder:7b,CWE78,OS Command Injection,50,25,0,25,0,50.0,100.0,0.0,50.0,100.0,66.7,0.0,25,96.0,96.0,60.0,96.0
+qwen2.5-coder:7b,CWE121,Stack Buffer Overflow,50,23,2,22,3,52.0,92.0,12.0,51.1,88.0,65.7,0.067,23,0.0,60.9,82.6,100.0
+qwen2.5-coder:7b,CWE122,Heap Buffer Overflow,50,23,2,16,9,64.0,92.0,36.0,59.0,64.0,71.9,0.338,23,0.0,78.3,73.9,100.0
+qwen2.5-coder:7b,CWE190,Integer Overflow,50,18,7,19,6,48.0,72.0,24.0,48.6,76.0,58.1,-0.046,18,27.8,27.8,61.1,77.8
+qwen2.5-coder:7b,CWE416,Use After Free,50,25,0,12,13,76.0,100.0,52.0,67.6,48.0,80.6,0.593,25,76.0,76.0,100.0,100.0
+qwen2.5-coder:7b,CWE476,NULL Pointer Dereference,40,16,4,13,7,57.5,80.0,35.0,55.2,65.0,65.3,0.168,16,100.0,100.0,87.5,87.5

@@ -1,0 +1,14 @@
+#include "std_testcase.h"
+
+#include <math.h>
+
+void func1()
+{
+    unsigned int data;
+    data = 0;
+    fscanf (stdin, "%u", &data);
+    {
+        unsigned int result = data * data;
+        printUnsignedLine(result);
+    }
+}

@@ -1,0 +1,14 @@
+#include <inttypes.h>
+#include "std_testcase.h"
+
+void func1()
+{
+    int64_t data;
+    data = 0LL;
+    fscanf (stdin, "%" SCNd64, &data);
+    if(data > 0)
+    {
+        int64_t result = data * 2;
+        printLongLongLine(result);
+    }
+}

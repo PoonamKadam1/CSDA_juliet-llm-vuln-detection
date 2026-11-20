@@ -1,0 +1,4 @@
+Model,Files,TP,FN,FP,TN,No valid answer
+codellama:7b,290,145,0,137,8,8
+deepseek-coder:6.7b,290,76,69,18,127,0
+qwen2.5-coder:7b,290,130,15,107,38,1

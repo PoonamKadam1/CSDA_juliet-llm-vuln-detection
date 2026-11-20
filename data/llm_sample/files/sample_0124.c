@@ -1,0 +1,30 @@
+#include "std_testcase.h"
+
+#define CHAR_ARRAY_SIZE (3 * sizeof(data) + 2)
+
+void func1()
+{
+    int data;
+    data = 0;
+    if(GLOBAL_CONST_TRUE)
+    {
+        {
+            char inputBuffer[CHAR_ARRAY_SIZE] = "";
+            if (fgets(inputBuffer, CHAR_ARRAY_SIZE, stdin) != NULL)
+            {
+                data = atoi(inputBuffer);
+            }
+            else
+            {
+                printLine("fgets() failed.");
+            }
+        }
+    }
+    if(GLOBAL_CONST_TRUE)
+    {
+        {
+            int result = data + 1;
+            printIntLine(result);
+        }
+    }
+}

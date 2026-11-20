@@ -1,0 +1,54 @@
+#include "std_testcase.h"
+
+#ifndef _WIN32
+#include <wchar.h>
+#endif
+
+#define SRC_STRING L"AAAAAAAAAA"
+
+namespace func1
+{
+
+static void func2()
+{
+    wchar_t * data;
+    data = NULL;
+    if(GLOBAL_CONST_FALSE)
+    {
+        printLine("Benign, fixed string");
+    }
+    else
+    {
+        data = new wchar_t[10+1];
+    }
+    {
+        wchar_t source[10+1] = SRC_STRING;
+        memcpy(data, source, (wcslen(source) + 1) * sizeof(wchar_t));
+        printWLine(data);
+        delete [] data;
+    }
+}
+
+static void func3()
+{
+    wchar_t * data;
+    data = NULL;
+    if(GLOBAL_CONST_TRUE)
+    {
+        data = new wchar_t[10+1];
+    }
+    {
+        wchar_t source[10+1] = SRC_STRING;
+        memcpy(data, source, (wcslen(source) + 1) * sizeof(wchar_t));
+        printWLine(data);
+        delete [] data;
+    }
+}
+
+void func4()
+{
+    func2();
+    func3();
+}
+
+}

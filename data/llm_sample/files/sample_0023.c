@@ -1,0 +1,24 @@
+#include "std_testcase.h"
+
+#ifndef _WIN32
+#include <wchar.h>
+#endif
+
+#define SRC_STRING "AAAAAAAAAA"
+
+void func1()
+{
+    char * data;
+    data = NULL;
+    if(GLOBAL_CONST_TRUE)
+    {
+        data = (char *)malloc(10*sizeof(char));
+        if (data == NULL) {exit(-1);}
+    }
+    {
+        char source[10+1] = SRC_STRING;
+        strncpy(data, source, strlen(source) + 1);
+        printLine(data);
+        free(data);
+    }
+}
