@@ -4,6 +4,10 @@
 
 **Student Name:** Poonam Vikram Kadam
 
+## Versions v1
+- CSDA_juliet-llm-vuln-detection_v2.zip: cleaner version with some corrections in the notebook. Results are same.
+
+  
 This project tests how well 3 local language models (LLMs) can find security vulneraboility in C/C++ code. For each file model verifies :
 - The file is vulnerable?
 - Which type of vulnerability it is? (CWE)
