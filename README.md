@@ -4,7 +4,7 @@
 
 **Student Name:** Poonam Vikram Kadam
 
-## Versions v1
+## Versions v2
 - CSDA_juliet-llm-vuln-detection_v2.zip: cleaner version with some corrections in the notebook. Results are same.
 
   
@@ -62,7 +62,7 @@ Test files are came from the official NIST Juliet C/C++ 1.3 test suit : We selec
 ```bash
 cd ~/Downloads/CSDA_juliet-llm-vuln-detection-main
 ```
-
+(If you use the v2 zip, the folder is called `juliet-llm-vuln-detection` instead.)
 3. Install the packages:
 ```bash
 python3 -m venv venv
