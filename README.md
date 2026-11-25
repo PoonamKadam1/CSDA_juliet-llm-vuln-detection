@@ -48,6 +48,7 @@ Test files are came from the official NIST Juliet C/C++ 1.3 test suit : We selec
     │   ├── deepseek-coder_6.7b.jsonl
     │   ├── codellama_7b.jsonl
     │   └── qwen2.5-coder_7b.jsonl
+    ├── flawfinder_check.py
     └── evaluation/         # output of evaluate.py and analysis.ipynb (CSV tables formats and PNG figures) and added 'flawfinder_check.py' for comparisonof LLM with Static analysis. 
 ```
 ## To reproduce the result:
