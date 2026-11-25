@@ -8,7 +8,7 @@ import math
 folder = "/Volumes/Seagate/juliet_data/llm_sample"
 
 # ---  Read Flawfinder results ---
-# We just want to know which files Flawfinder found any issue in.
+# We  want to know which files Flawfinder found  issue.
 flawfinder_hits = []
 
 file_path = folder + "/evaluation/flawfinder_clean.csv"
@@ -21,11 +21,11 @@ with open(file_path, "r") as f:
         # Get just the file name (e.g. sample_0002.c)
         name = row[file_index].split("/")[-1]
         
-        # If we haven't seen this file yet, add it to our list
+        # If we haven't seen this file yet, add it to our list.
         if name not in flawfinder_hits:
             flawfinder_hits.append(name)
 
-# --- Compare with the correct answers ---
+# --- Compare with the correct answers initialzation to 0 ---
 tp = 0
 fp = 0
 fn = 0
@@ -42,19 +42,19 @@ with open(labels_path, "r") as f:
         name = row[file_index]
         label = row[label_index]
         
-        # Did Flawfinder find something in this file?
+        # is Flawfinder find something in this file?
         if name in flawfinder_hits:
             if label == "bad":
-                tp = tp + 1  # True Positive
+                tp = tp + 1  # True +ve
             else:
-                fp = fp + 1  # False Positive (False Alarm)
+                fp = fp + 1  # False alarm
         else:
             if label == "bad":
-                fn = fn + 1  # False Negative (Missed)
+                fn = fn + 1  # False -ve (Missed)
             else:
-                tn = tn + 1  # True Negative
+                tn = tn + 1  # True -ve
 
-# --- Part 3: Print the results and metrics ---
+# ---  Print the results and metrics ---
 print("Flawfinder Results:")
 print("  TP =", tp, " FP =", fp, " FN =", fn, " TN =", tn)
 
