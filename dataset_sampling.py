@@ -93,9 +93,8 @@ def put_flaw_marker(code):
 
     return "\n".join(result) + "\n"
 
-
+"""Remove /* ... */ and // comments while keeping string literals safe."""
 def strip_comments(code):
-    """Remove /* ... */ and // comments while keeping string literals safe."""
     result = []
     i = 0
     length = len(code)
@@ -103,7 +102,7 @@ def strip_comments(code):
     while i < length:
         ch = code[i]
 
-        # Skip over string or character literals so we don't break "//" inside quotes
+        # for Skip over string or character literals so we don't break "//" inside quotes
         if ch == '"' or ch == "'":
             j = i + 1
             while j < length and code[j] != ch:
@@ -113,7 +112,7 @@ def strip_comments(code):
             result.append(code[i:j + 1])
             i = j + 1
 
-        # Handle /* ... */ and // comments
+        # for Handle /* ... */ and // comments
         elif code[i:i + 2] == "/*" or code[i:i + 2] == "//":
             if code[i:i + 2] == "/*":
                 end_pos = code.find("*/", i + 2)
@@ -122,7 +121,7 @@ def strip_comments(code):
                 end_pos = code.find("\n", i)
                 end = length if end_pos == -1 else end_pos
 
-            # Check if the comment was alone on its own line
+            # to Check if the comment was alone on its own line
             current_text = "".join(result)
             line_start = current_text.rfind("\n") + 1
             next_newline = code.find("\n", end)
@@ -140,12 +139,11 @@ def strip_comments(code):
 
     return "".join(result)
 
-
+ """Remove comments, hide bad/good/CWE names, and clean extra blank lines."""
 def clean_code(code):
-    """Remove comments, hide bad/good/CWE names, and clean extra blank lines."""
     code = strip_comments(code)
 
-    # Replace bad/good/CWE identifiers in order of appearance with func1, func2...
+    # to Replace bad/good/CWE identifiers in order of appearance with func1, func2...
     word_map = {}
     matches = list(re.finditer(r"\b\w*(?:bad|good|cwe\d+)\w*\b", code, flags=re.IGNORECASE))
     pieces = []
@@ -162,7 +160,7 @@ def clean_code(code):
     pieces.append(code[last_idx:])
     code = "".join(pieces)
 
-    # Strip trailing spaces and keep max 1 blank line between blocks (same as original)
+    # to Strip trailing spaces and keep max 1 blank line between blocks (same as original)
     trimmed_lines = []
     for line in code.splitlines():
         trimmed_lines.append(line.rstrip())
@@ -185,7 +183,7 @@ def extract_line_numbers(code):
     return "\n".join(final_lines), flaw_lines
 
 
-# ---------------- MAIN SCRIPT ----------------
+# ---------------- main ----------------
 if not os.path.isdir(NIST_PATH):
     print("error: cannot find", NIST_PATH)
     raise SystemExit(1)
@@ -211,7 +209,7 @@ for cwe in CWES:
         with open(path, encoding="utf-8", errors="replace") as f:
             original = f.read()
 
-        # Process bad and good versions
+        # to Process bad and good versions
         bad_code = get_version(original, "bad")
         bad_code = put_flaw_marker(bad_code)
         bad_code = clean_code(bad_code)
@@ -221,7 +219,7 @@ for cwe in CWES:
         good_code = clean_code(good_code)
         good_code, _ = extract_line_numbers(good_code)
 
-        # Make sure both versions still contain functions and at least one flaw line
+        # to Make sure both versions still contain functions and at least one flaw line
         has_bad_func = re.search(r"\)\s*\{", bad_code) is not None
         has_good_func = re.search(r"\)\s*\{", good_code) is not None
         if not (has_bad_func and has_good_func and len(flaws) > 0):
@@ -239,7 +237,7 @@ for cwe in CWES:
 
     print(f"{cwe_name}: {found} files found, {len(all_pairs[cwe_name])} usable pairs, {skipped} skipped")
 
-# Sample 25 pairs per CWE (or all 20 for CWE476)
+# to Sample 25 pairs per CWE (or all 20 for CWE476)
 rng = random.Random(SEED)
 chosen = []
 print()
@@ -255,7 +253,7 @@ for cwe in CWES:
 
 rng.shuffle(chosen)
 
-# Write cleaned files and labels.csv
+# to  Write cleaned files and labels.csv
 files_dir = os.path.join(OUT_DIR, "files")
 if os.path.isdir(files_dir):
     shutil.rmtree(files_dir)
