@@ -9,7 +9,7 @@ import random
 import shutil
 
 NIST_PATH = "/Volumes/Seagate/juliet_data/nist/C/testcases"
-OUT_DIR = "/Volumes/Seagate/juliet_data/llm_sample_test"
+OUT_DIR = "/Volumes/Seagate/juliet_data/llm_sample"
 CWES = ["78", "121", "122", "190", "416", "476"]
 VARIANTS = ["01", "09"]
 PAIRS_PER_CWE = 25
@@ -69,9 +69,8 @@ def all_blocks_active(block_stack):
             return False
     return True
 
-
+  """Put MARKER right before the vulnerable code line."""
 def put_flaw_marker(code):
-    """Put MARKER right before the vulnerable code line."""
     lines = code.splitlines()
     result = []
     waiting_for_code = False
@@ -93,7 +92,7 @@ def put_flaw_marker(code):
 
     return "\n".join(result) + "\n"
 
-"""Remove /* ... */ and // comments while keeping string literals safe."""
+"""for comment removal, Remove /* ... */ and // comments while keeping string literals safe."""
 def strip_comments(code):
     result = []
     i = 0
