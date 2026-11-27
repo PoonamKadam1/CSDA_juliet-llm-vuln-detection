@@ -1,5 +1,6 @@
-# Code: dataset prep and sanitization
+# Code: dataset sample preperation and sanitization
 # juliet testcases we selected -> 145 good + 145 bad = 290 clean files + labels.csv
+######################################################################################
 
 import os
 import re
@@ -61,15 +62,14 @@ def get_version(code, keep_type):
 
     return "\n".join(result) + "\n"
 
-
+#to Check if all outer #if blocks are currently active.
 def all_blocks_active(block_stack):
-    """Check if all outer #if blocks are currently active."""
     for block in block_stack:
         if block[1] == False:
             return False
     return True
 
-  """Put MARKER right before the vulnerable code line."""
+  # to put MARKER  before the vulnerable code line.
 def put_flaw_marker(code):
     lines = code.splitlines()
     result = []
@@ -92,7 +92,7 @@ def put_flaw_marker(code):
 
     return "\n".join(result) + "\n"
 
-"""for comment removal, Remove /* ... */ and // comments while keeping string literals safe."""
+# to remove comments. Remove /* ... */ and // comments while keeping string literals safe. 
 def strip_comments(code):
     result = []
     i = 0
@@ -138,7 +138,7 @@ def strip_comments(code):
 
     return "".join(result)
 
- """Remove comments, hide bad/good/CWE names, and clean extra blank lines."""
+#Remove comments, hide bad/good/CWE names, and clean extra blank lines.
 def clean_code(code):
     code = strip_comments(code)
 
@@ -167,9 +167,8 @@ def clean_code(code):
     code = re.sub(r"\n\s*\n+", "\n\n", code).strip() + "\n"
     return code
 
-
+# Removed the  MARKER lines and save exact flaw line numbers
 def extract_line_numbers(code):
-    """Remove MARKER lines and save exact flaw line numbers."""
     final_lines = []
     flaw_lines = []
 
@@ -181,8 +180,9 @@ def extract_line_numbers(code):
 
     return "\n".join(final_lines), flaw_lines
 
-
+############################################
 # ---------------- main ----------------
+############################################
 if not os.path.isdir(NIST_PATH):
     print("error: cannot find", NIST_PATH)
     raise SystemExit(1)
