@@ -1,6 +1,6 @@
 # flawfinder_check.py 
 # This script checks Flawfinder's results against our labels.csv file. 
-# We use a simple rule: If Flawfinder finds ANY warning, we say the file is vulnerable.
+#  rule for check: If Flawfinder finds any warning, we say the file is vulnerable.
 
 import csv
 import math
